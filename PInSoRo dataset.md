@@ -97,6 +97,7 @@ This file contains 449 fields. But I summed up these to give a brief which is us
   documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md#face-output-format)
   for the location of these landmarks.<br/><br/>
 <p align="center"><img src="https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_face.png" width="80%" height="80%"></p>
+
 - `purple_child_skel{00..17}_{x,y}`: 2D coordinates of the 18 skeleton
   keypoints, normalised in [0.0,1.0], extracted by
   [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose/). See
@@ -106,14 +107,18 @@ This file contains 449 fields. But I summed up these to give a brief which is us
   setting generating a lot of occlusion (children sitting in front of a table),
   the skeletal data is not always reliable.<br/><br/>
 <p align="center"><img src="https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_pose_18.png/" width="250" height="400"></p>
+
 - `purple_child_head_{x,y,z,rx,ry,rz`: head pose estimation, in m and rad, relative to the table centre (see below for the camera extrinsics). Computed using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace).<br/>
 <p align="center"><a href="https://www.youtube.com/watch?v=V7rV0uy7heQ" target="_blank"><img src="http://img.youtube.com/vi/V7rV0uy7heQ/0.jpg" alt="Multiple Face Tracking" width="240" height="180" border="10" /></a></p>
+
 - `purple_child_gaze_{x,y,z}`: gaze vector, averaged for both eyes, relative to the table centre. Computed using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace).<br/>
 <p align="center"><img src="https://github.com/TadasBaltrusaitis/OpenFace/raw/master/imgs/gaze_ex.png" width="70%"></p>
+
 - `purple_child_au{01,02,04,05,06,07,09,10,12,14,15,17,20,23,25,26,28,45}`:
   Intensity of 18
   facial action units, extract using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace). See [here](https://github.com/TadasBaltrusaitis/OpenFace/wiki/Action-Units) for the details.<br/>
 <p align="center"><img src="https://raw.githubusercontent.com/wiki/TadasBaltrusaitis/OpenFace/images/AUs.jpg" width="70%"></p>
+
 - `purple_child_motion_intensity_{avg,stdev,max}`: average, standard deviation
   and maximum of the magnitude of the motion observed in the frame. This is
   computed by performing a [optical flow computation using the Dual TVL1 algorithm](https://github.com/freeplay-sandbox/analysis/blob/master/src/optical_flow.cpp#L163) and averaging the resulting values on the whole frame
@@ -122,6 +127,7 @@ This file contains 449 fields. But I summed up these to give a brief which is us
   computed by performing a [optical flow computation using the Dual TVL1 algorithm](https://github.com/freeplay-sandbox/analysis/blob/master/src/optical_flow.cpp#L163) and averaging the resulting values on the whole frame<br/>
 <p align="center"><img src="
 http://amroamroamro.github.io/mexopencv/opencv/tvl1_optical_flow_demo_03.png"></p>
+
 - `{purple,yellow}_child_{task_engagement,social_engagement,social_attitude}`: manual annotations of the social interaction. See the [coding scheme.](https://freeplay-sandbox.github.io/coding-scheme). If more that one annotator annotated this frame, **and the annotators disagreed**, the different annotations are separated by a `+`.<br/>
 <p align="center"><img src="https://freeplay-sandbox.github.io/media/coding-scheme.png" width="70%" height="50%"></p>
 
@@ -130,6 +136,7 @@ http://amroamroamro.github.io/mexopencv/opencv/tvl1_optical_flow_demo_03.png"></
 
 <details markdown="1">
 <summary> <b>freeplay.poses.json</b>: stores the skeletons and facial features extracked from each of the video frames.</summary>
+
 ##### Format of poses files #####
 
 ```
