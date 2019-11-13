@@ -125,8 +125,7 @@ This file contains 449 fields. But I summed up these to give a brief which is us
 - `purple_child_motion_direction_{avg,stdev}`: average and standard deviation
   of the direction of the motion observed in the frame. This is
   computed by performing a [optical flow computation using the Dual TVL1 algorithm](https://github.com/freeplay-sandbox/analysis/blob/master/src/optical_flow.cpp#L163) and averaging the resulting values on the whole frame<br/>
-<p align="center"><img src="
-http://amroamroamro.github.io/mexopencv/opencv/tvl1_optical_flow_demo_03.png"></p>
+<p align="center"><img src="http://amroamroamro.github.io/mexopencv/opencv/tvl1_optical_flow_demo_03.png"></p>
 
 - `{purple,yellow}_child_{task_engagement,social_engagement,social_attitude}`: manual annotations of the social interaction. See the [coding scheme.](https://freeplay-sandbox.github.io/coding-scheme). If more that one annotator annotated this frame, **and the annotators disagreed**, the different annotations are separated by a `+`.<br/>
 <p align="center"><img src="https://freeplay-sandbox.github.io/media/coding-scheme.png" width="70%" height="50%"></p>
