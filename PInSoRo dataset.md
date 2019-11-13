@@ -95,17 +95,17 @@ This file contains 449 fields. But I summed up these to give a brief which is us
   [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose/). See
   [OpenPose
   documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md#face-output-format)
-  for the location of these landmarks.<br/><br/>
+  for the location of these landmarks.<br/>
 <p align="center"><img src="https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_face.png" width="80%" height="80%"></p>
 
 - `purple_child_skel{00..17}_{x,y}`: 2D coordinates of the 18 skeleton
   keypoints, normalised in [0.0,1.0], extracted by
   [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose/). See
   [OpenPose
-  documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md#pose-output-format-coco)
+documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md#pose-output-format-coco)
   for the location of these keypoints. Note that, due to the experimental
   setting generating a lot of occlusion (children sitting in front of a table),
-  the skeletal data is not always reliable.<br/><br/>
+  the skeletal data is not always reliable.<br/>
 <p align="center"><img src="https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_pose_18.png/" width="250" height="400"></p>
 
 - `purple_child_head_{x,y,z,rx,ry,rz`: head pose estimation, in m and rad, relative to the table centre (see below for the camera extrinsics). Computed using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace).<br/>
