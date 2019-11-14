@@ -135,7 +135,7 @@ This file contains 449 fields. But I Summed up these to a few fields needed to u
 
 
 <details markdown="1">
-<summary> <b>freeplay.poses.json</b>: stores the skeletons and facial features extracked from each of the video frames.</summary>
+<summary> <b>freeplay.poses.json</b>: stores the skeletons and facial features extracted from each of the video frames.</summary>
 
 ##### Format of poses files #####
 
