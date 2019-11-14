@@ -11,7 +11,7 @@ These interactions are recorded during little-constrained free play episodes. Th
 The anonymised version has `pinsoro-*.csv` files, but no raw video streams and ROS bag files that can be modified by presented tools.<br/>
 Details is here: [https://freeplay-sandbox.github.io/get-dataset](https://freeplay-sandbox.github.io/get-dataset)
 
-The PInSoRo Dataset consists in 75 recordings of interactions (45 child-child interactions; 30 child-robot interactions; up to 40 min per interactions). And each recordings has `pinsoro-*.csv` file containing facial features, skeletons, gaze, etc.
+The PInSoRo Dataset consists in 75 recordings of interactions (45 child-child interactions; 30 child-robot interactions; up to 40 min per interactions). And each record has `pinsoro-*.csv` file containing facial features, skeletons, gaze, etc.
 
 Dataset Structure
 ---
@@ -81,54 +81,55 @@ Besides, in the child-robot condition, the robot was always replacing the yellow
 <details markdown="1">
 <summary> <b>pinsoro-*.csv</b>: All the main dataset features sampled at 30Hz (30FPS). </summary>
 
-This file contains 449 fields. But I summed up these to give a brief which is usable fields.
+This file contains 449 fields. But I Summed up these to a few fields needed to us.
 
 ##### CSV Fields #####
 - `condition`: child-child or child-robot. [Refer to the
   website](https://freeplay-sandbox.github.io/dataset) for details.
+
 - `purple_child_age`, `purple_child_gender`, `yellow_child_age`, `yellow_child_gender`: self explanatory
+- 
 - `purple_frame_idx`: index of the frame in the purple camera video stream.
-  Can be used to quickly extract a specific frame or range of frame in the video
-  stream
+  Can be used to quickly extract a specific frame or range of frame in the video stream.
+
 - `purple_child_face{00..69}_{x,y}`: 2D coordinates of the 70 facial landmarks
   (including pupils), normalised in [0.0, 1.0], extracted by
   [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose/). See
-  [OpenPose
-  documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md#face-output-format)
-  for the location of these landmarks.<br/>
+  [OpenPose documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md#face-output-format)
+  for the location of these landmarks.
 <p align="center"><img src="https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_face.png" width="80%" height="80%"></p>
 
 - `purple_child_skel{00..17}_{x,y}`: 2D coordinates of the 18 skeleton
   keypoints, normalised in [0.0,1.0], extracted by
   [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose/). See
-  [OpenPose
-documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md#pose-output-format-coco)
+  [OpenPose documentation](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md#pose-output-format-coco)
   for the location of these keypoints. Note that, due to the experimental
   setting generating a lot of occlusion (children sitting in front of a table),
-  the skeletal data is not always reliable.<br/>
+  the skeletal data is not always reliable.
 <p align="center"><img src="https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_pose_18.png/" width="250" height="400"></p>
 
-- `purple_child_head_{x,y,z,rx,ry,rz`: head pose estimation, in m and rad, relative to the table centre (see below for the camera extrinsics). Computed using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace).<br/>
+- `purple_child_head_{x,y,z,rx,ry,rz`: head pose estimation, in m and rad, relative to the table centre (see below for the camera extrinsics). Computed using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace).
 <p align="center"><a href="https://www.youtube.com/watch?v=V7rV0uy7heQ" target="_blank"><img src="http://img.youtube.com/vi/V7rV0uy7heQ/0.jpg" alt="Multiple Face Tracking" width="240" height="180" border="10" /></a></p>
 
-- `purple_child_gaze_{x,y,z}`: gaze vector, averaged for both eyes, relative to the table centre. Computed using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace).<br/>
+- `purple_child_gaze_{x,y,z}`: gaze vector, averaged for both eyes, relative to the table centre. Computed using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace).
 <p align="center"><img src="https://github.com/TadasBaltrusaitis/OpenFace/raw/master/imgs/gaze_ex.png" width="70%"></p>
 
 - `purple_child_au{01,02,04,05,06,07,09,10,12,14,15,17,20,23,25,26,28,45}`:
   Intensity of 18
-  facial action units, extract using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace). See [here](https://github.com/TadasBaltrusaitis/OpenFace/wiki/Action-Units) for the details.<br/>
+  facial action units, extract using [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace). See [here](https://github.com/TadasBaltrusaitis/OpenFace/wiki/Action-Units) for the details.
 <p align="center"><img src="https://raw.githubusercontent.com/wiki/TadasBaltrusaitis/OpenFace/images/AUs.jpg" width="70%"></p>
 
 - `purple_child_motion_intensity_{avg,stdev,max}`: average, standard deviation
   and maximum of the magnitude of the motion observed in the frame. This is
   computed by performing a [optical flow computation using the Dual TVL1 algorithm](https://github.com/freeplay-sandbox/analysis/blob/master/src/optical_flow.cpp#L163) and averaging the resulting values on the whole frame
+
 - `purple_child_motion_direction_{avg,stdev}`: average and standard deviation
   of the direction of the motion observed in the frame. This is
-  computed by performing a [optical flow computation using the Dual TVL1 algorithm](https://github.com/freeplay-sandbox/analysis/blob/master/src/optical_flow.cpp#L163) and averaging the resulting values on the whole frame<br/>
-<p align="center"><img src="http://amroamroamro.github.io/mexopencv/opencv/tvl1_optical_flow_demo_03.png"></p>
+  computed by performing a [optical flow computation using the Dual TVL1 algorithm](https://github.com/freeplay-sandbox/analysis/blob/master/src/optical_flow.cpp#L163) and averaging the resulting values on the whole frame.
+<p align="center"><img src="http://amroamroamro.github.io/mexopencv/opencv/tvl1_optical_flow_demo_03.png" witdh="500px" height="400px"></p>
 
-- `{purple,yellow}_child_{task_engagement,social_engagement,social_attitude}`: manual annotations of the social interaction. See the [coding scheme.](https://freeplay-sandbox.github.io/coding-scheme). If more that one annotator annotated this frame, **and the annotators disagreed**, the different annotations are separated by a `+`.<br/>
-<p align="center"><img src="https://freeplay-sandbox.github.io/media/coding-scheme.png" width="70%" height="50%"></p>
+- `{purple,yellow}_child_{task_engagement,social_engagement,social_attitude}`: manual annotations of the social interaction. See the [coding scheme.](https://freeplay-sandbox.github.io/coding-scheme). If more that one annotator annotated this frame, **and the annotators disagreed**, the different annotations are separated by a `+`.
+<p align="center"><img width="500px" height="300px" src="https://freeplay-sandbox.github.io/media/coding-scheme.png"></p>
 
 </details>
 
