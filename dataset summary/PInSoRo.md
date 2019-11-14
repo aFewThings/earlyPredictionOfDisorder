@@ -88,7 +88,7 @@ This file contains 449 fields. But I Summed up these to a few fields needed to u
   website](https://freeplay-sandbox.github.io/dataset) for details.
 
 - `purple_child_age`, `purple_child_gender`, `yellow_child_age`, `yellow_child_gender`: self explanatory
-- 
+
 - `purple_frame_idx`: index of the frame in the purple camera video stream.
   Can be used to quickly extract a specific frame or range of frame in the video stream.
 
