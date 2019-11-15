@@ -37,9 +37,33 @@ FLIC(Frames Labelled In Cinema)
 - 10 upperbody joints with MATLAB format.
 - no occlusion or severely non-frontal.
 
-COCO 2019 Keypoint Detection
+COCO 2017 Keypoint Detection dataset
 ---
-...
+In case of Keypoint Detection of COCO, 2017 Keypoint dataset is the latest version.
+
+<p align="center"> <img src="http://cocodataset.org/images/keypoints-splash.png"> </p>
+
+- train/val/test images containing more than 200K images and 250K person instances.
+- Annotated with [JSON format](http://cocodataset.org/#format-data). Each keypoint has location x, y and a visibility flag v (v=0: not labeled, v=1: labeled but not visible, v=2: labeled and visible).
+
+VGG Human Pose Estimation Datasets
+---
+[https://www.robots.ox.ac.uk/~vgg/data/pose/index.html](https://www.robots.ox.ac.uk/~vgg/data/pose/index.html)
+
+VGG contains several datasets as below.
+
+### Youtube Pose ###
+<p align="center"> <img src="https://www.robots.ox.ac.uk/~vgg/data/pose/array.png"> </p>
+
+- 50 YouTube videos for upper body pose estimation.
+- 2D locations of upper body joints with MATLAB format.
+
+### BBC Pose (Default, Extended, Short) ###
+<p align="center"> <img src="https://www.robots.ox.ac.uk/~vgg/data/pose/img/examplevid.png"> </p>
+
+- 20 videos (in default case) recorded from BBC with an overlaid sign language interpreter.
+- annotated with upper body joints (head, wrists, elbows, shoulders)
+- split into train/validation/test sets (10/5/5)
 
 </details>
 
