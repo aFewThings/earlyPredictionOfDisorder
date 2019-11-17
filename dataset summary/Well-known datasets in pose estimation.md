@@ -65,6 +65,27 @@ VGG contains several datasets as below.
 - annotated with upper body joints (head, wrists, elbows, shoulders)
 - split into train/validation/test sets (10/5/5)
 
+Pose Track 2018
+---
+[https://posetrack.net/users/download.php](https://posetrack.net/users/download.php)
+<br/>
+Reference: [Posetrack Data set: Summary](https://medium.com/@anuj_shah/posetrack-data-set-summary-9cf61fc6f44e)
+
+
+<p align="center"> <img src="https://miro.medium.com/max/800/1*D7hq1ULqzLedjkhwH1NwPg.jpeg"> </p>
+
+Posetrack is a new large-scale benchmark for video-based human pose estimation and articulated tracking.
+
+This dataset focuses on 3 task.<br/>
+1) Single-frame multi-person pose estimation<br/>
+2) Multi-person pose estimation in videos<br/>
+3) Multi-person articulated tracking
+
+- 1356 video sequences, 46K annotated frames, 276K body pose annotations.
+- Annotation stored in [JSON format](https://github.com/leonid-pishchulin/poseval)
+- Training/Validation/Test sets
+- PoseTrack17: 15 keypoints, PoseTrack18: 17 keypoints
+
 </details>
 
 <details markdown="1">
@@ -79,12 +100,13 @@ ITOP
 - 15 joints
 - depth map, point cloud
 
-DensePose-COCO
+DensePose-COCO, PoseTrack
 ---
-...
+[http://densepose.org](http://densepose.org)
 
-DensePose-PoseTrack
----
-...
+<p align="center"><img src="http://densepose.org/img/anno/anno2.png"></p>
+
+DensePose aims at mapping all human pixels of an RGB image to the 3D surface of the human body (They call this correspondence). So its datasets contain correspondences only fit on their methods.
+
 
 </details>
