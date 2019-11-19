@@ -86,7 +86,21 @@ This dataset focuses on 3 task.<br/>
 - Training/Validation/Test sets
 - PoseTrack17: 15 keypoints, PoseTrack18: 17 keypoints
 
+Self-Stimulatory Behaviours in the Wild for Autism Diagnosis Dataset (SSBD)
+---
+[https://rolandgoecke.net/research/datasets/ssbd/](https://rolandgoecke.net/research/datasets/ssbd/)<br/>
+[https://github.com/antran89/clipping_ssbd_videos](https://github.com/antran89/clipping_ssbd_videos)
+
+<p align="center"><img src="./images/Flapping_his_arms.gif"></p>
+
+- extremely challenging (low quality, occulusion, etc) for analysis as they are recorded in uncontrolled natural settings.
+- 75 URLs of videos with average duration of 90 sec.
+- 3 group (arm flapping, head banging, spinning)
+- XML annotation format.
+
+
 </details>
+
 
 <details markdown="1">
 <summary> <b>3D Pose Estimation Dataset</b> </summary>
@@ -108,5 +122,22 @@ DensePose-COCO, PoseTrack
 
 DensePose aims at mapping all human pixels of an RGB image to the 3D surface of the human body (They call this correspondence). So its datasets contain correspondences only fit on their methods.
 
+The Moving Infants In RGB-D dataset (MINI-RGBD)
+---
+[https://www.iosb.fraunhofer.de/servlet/is/82920/](https://www.iosb.fraunhofer.de/servlet/is/82920/)
+<p align="center"><img src="https://www.iosb.fraunhofer.de/servlet/is/82920/acvr2018_sample.png"></p>
+
+MINI-RGBD dataset is focused on generating infant 2D/3D pose dataset without privacy problems. To preserve the privacy of infants, they generated new textures and shapes by averaging multiple texture and shapes of real infants using [SMIL](https://www.youtube.com/watch?v=aahF1xGurmM&feature=youtu.be) (Multi-Infant Linear body model).
+
+<p align="center"><img src="https://www.iosb.fraunhofer.de/servlet/is/82920/smil_sample.png"></p>
+**This dataset is not opened at web, but they offer data set as a emails.** 
+
+
+(Following features are not certain.)
+
+- 2D and 3D ground truths (skeletons)
+- infants up to the age of 7 months
+- continuous motions instead of single frames
+- RGB, depth images
 
 </details>
