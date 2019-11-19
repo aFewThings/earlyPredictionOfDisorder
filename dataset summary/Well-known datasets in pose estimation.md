@@ -130,8 +130,8 @@ The Moving Infants In RGB-D dataset (MINI-RGBD)
 MINI-RGBD dataset is focused on generating infant 2D/3D pose dataset without privacy problems. To preserve the privacy of infants, they generated new textures and shapes by averaging multiple texture and shapes of real infants using [SMIL](https://www.youtube.com/watch?v=aahF1xGurmM&feature=youtu.be) (Multi-Infant Linear body model).
 
 <p align="center"><img src="https://www.iosb.fraunhofer.de/servlet/is/82920/smil_sample.png"></p>
-**This dataset is not opened at web, but they offer data set as a emails.** 
 
+**This dataset wasn't opened at the web, but they offer dataset only for requests.**
 
 (Following features are not certain.)
 
