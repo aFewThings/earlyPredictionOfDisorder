@@ -24,27 +24,25 @@ AlphaPose(RMPE's New Version) (2016)
 [[Paper Link]](https://arxiv.org/abs/1612.00137v5)
 [[Code Link]](https://github.com/MVIG-SJTU/AlphaPose)
 <br/>
-Ref: [Spatial Transformer Network](https://jamiekang.github.io/2017/05/27/spatial-transformer-networks/)
+Ref: [STN (Spatial Transformer Network)](https://jamiekang.github.io/2017/05/27/spatial-transformer-networks/)
 
 <p align="center"><img src="./images/RMPE.PNG"></p>
 <br/>
 <p align="center"><img src="./images/RMPE2.PNG"></p>
-<br/>
-<p align="center"><img src="https://jamiekang.github.io/media/2017-05-27-spatial-transformer-networks-fig1.png" width="70%"></p>
 
 - SPPE: Single Person Pose Estimator
-- SSTN: Symmetric Spatial Transformer Network
+- SSTN(STN+SDTN): Symmetric Spatial Transformer Network
 - p-Pose NMS: Parametric Pose Non-Maximum-Suppression
 - PGPG: Pose-Guided Proposals Generator
 
 <br/>
-RMPE는 기본적으로 human detector를 통해 region proposal을 수행한 뒤, 각각의 region에서 SPPE를 적용해 pose를 추출해내는 two-step framework 이다. human detector와 SPPE는 기존의 다양한 방법들을 사용할 수 있고, 실제 테스트로 faster-rcnn (human detector)과 stacked hourglass model (SSPE)를 사용하였다.
+RMPE는 기본적으로 human detector를 통해 region proposal을 수행한 뒤, 각각의 region에서 SPPE를 적용해 pose를 추출해내는 two-step framework 이다. human detector와 SPPE는 기존의 다양한 방법들을 사용할 수 있고, 실제 테스트로 faster-rcnn (human detector)과 stacked hourglass model (SPPE)를 사용하였다.
 
-RMPE는 two-step framework 방식과 part-based framework 방식 중 전자의 경우, 첫번째로 수행하는 human detector의 region 결과에 따라 pose estimation 정확도에 영향을 끼친다고 주장한다. 이는 localization error와 redundant detection problem을 야기하며 이를 SSTN과 p-Pose NMS를 통해 해결할 수 있음을 보였다.
+RMPE는 human detector가 올바르지 못한 region을 제안하더라도 pose estimation 하기에 무리가 없도록 하는 것을 목표로 한다.
+잘못된 region으로부터 localization error와 redundant detection problem이 발생하는데, 이를 SSTN과 p-Pose NMS를 통해 극복하였다. 
 
-
-
-
+SSTN은 STN과 SDTN(Spatial De-Transformer Network)으로 구성되며, SPPE의 전후에 추가된다. STN은 human detector로부터 region을 입력받아 해당 영역에서 사람을 이미지 가운데 위치시키도록 훈련받는다 (STN을 훈련할땐 Parallel SPPE를 이용한다고 함). 
+STN의 transform 결과는 사람의 위치, 회전, 크기를 변형시킨 것이므로 SPPE를 통해 포즈를 계산한뒤, 포즈가 원본 영역에서 제대로된 위치를 찾기 위해 SDTN을 수행한다. 결과적으로 SSTN은 SPPE가 human detector로부터 제안된 영역에서 포즈 추정을 할때 최대의 성능을 끌어내도록 돕는 역할을 한다.
 
 
 Cascaded Pyramid Network(CPN+) (2017)
