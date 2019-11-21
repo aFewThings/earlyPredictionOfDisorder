@@ -26,9 +26,9 @@ AlphaPose(RMPE's New Version) (2016)
 <br/>
 Ref: [Spatial Transformer Network](https://jamiekang.github.io/2017/05/27/spatial-transformer-networks/)
 
-<p align="center"><img src="./images/RMPE.png"></p>
+<p align="center"><img src="./images/RMPE.PNG"></p>
 <br/>
-<p align="center"><img src="./images/RMPE2.png"></p>
+<p align="center"><img src="./images/RMPE2.PNG"></p>
 <br/>
 <p align="center"><img src="https://jamiekang.github.io/media/2017-05-27-spatial-transformer-networks-fig1.png" width="70%"></p>
 
