@@ -6,11 +6,16 @@ Recent Models on Pose Estimation
   - Multi-Person Pose Estimation: [https://paperswithcode.com/task/multi-person-pose-estimation](https://paperswithcode.com/task/multi-person-pose-estimation)
   - Keypoint Detection: [https://paperswithcode.com/task/keypoint-detection](https://paperswithcode.com/task/keypoint-detection)
 
-2. Recently published, but no codes (Nov, 21, 2019)
+2. Recently published, but no codes (21, Nov, 2019)
   - Cascade Feature Aggregation (2019)
   - DarkPose (2019, repository exsists but not ready)
   - Spacial Contextual Information (2019)
 
+3. To understand pose estimation models, we need to know sub tasks of pose estimation. Mostly these are mixed, but some of models focused on specific task.
+  - Single / Multi person pose estimation
+  - Keypoint detection (COCO Keypoint Detection Challenge)
+  - Pose tracking (PoseTrack Challenge)
+  - Refinement pose estimation
 
 RMPE(Alpha Pose) (2016)
 ---
@@ -39,7 +44,7 @@ Simple Baselines(ResNet) (2018)
 [[Paper Link]](https://arxiv.org/abs/1804.06208v2)
 [[Code Link]](https://github.com/Microsoft/human-pose-estimation.pytorch)
 
-<p align="center"><img src="./images/ResNet.Png" width="90%"></p>
+<p align="center"><img src="./images/ResNet.png" width="90%"></p>
 
 <p align="center"><img src="./images/ResNet2.png" width="90%"></p>
 
