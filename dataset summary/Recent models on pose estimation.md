@@ -6,7 +6,7 @@ Recent Models on Pose Estimation
      - Multi-Person Pose Estimation: [https://paperswithcode.com/task/multi-person-pose-estimation](https://paperswithcode.com/task/multi-person-pose-estimation)
     - Keypoint Detection: [https://paperswithcode.com/task/keypoint-detection](https://paperswithcode.com/task/keypoint-detection)
 
-2. Recently published, but no codes (21, Nov, 2019)
+2. Recently published, but no codes (as 21, Nov, 2019)
     - Cascade Feature Aggregation (2019)
     - DarkPose (2019, repository exsists but not ready)
     - Spacial Contextual Information (2019)
@@ -16,6 +16,10 @@ Recent Models on Pose Estimation
     - Keypoint detection (COCO Keypoint Detection Challenge)
     - Pose tracking (PoseTrack Challenge)
     - Refinement pose estimation
+	
+4. In pose estimation pipe lines, there is two approaches. 
+    1. Top-Down Approaches(two-step framework): firstly locate and crop all persons from images, and then solve the single person pose estimation problem in the cropped person patches.
+	2. Bottom-Up Approaches(part-based framework): directly predict all keypoints at first and assemble them into full poses of all persons.
 
 RMPE (2016)
 ---
@@ -55,8 +59,15 @@ Cascaded Pyramid Network(CPN+) (2017)
 
 [[Paper Link]](https://arxiv.org/abs/1711.07319v2)
 [[Code Link]](https://github.com/chenyilun95/tf-cpn)
+<br/>
+Ref: [[RoIAlign of Mask R-CNN]](https://cdm98.tistory.com/33) [[FCN]](https://eehoeskrap.tistory.com/300)
 
 <p align="center"><img src="./images/CPN.png"></p>
+
+CPN은 hard keypoints(occluded and invisible keypoints, complex background) 문제를 줄이는 것을 목표로 한다. CPN은 two stages로써 GlobalNet과 RefineNet으로 구성된다. GlobalNet은 feature pyramid net로 simple keypoints(눈, 손과 같이 인식하기 쉬운 특징점) 를 localize한다. RefineNet은 GlobalNet으로부터 모든 레벨의 feature representations을 통합함으로써 hard keypoints 를 다룬다. 
+
+CPN은 top-down pipeline을 따라 human detector로 bounding boxes를 생성하고 이후 각 영역에서 pose estimation을 위해 CPN을 사용한다. 
+
 
 
 SimplePose(ResNet) (2018)
