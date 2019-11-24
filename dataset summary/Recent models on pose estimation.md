@@ -2,8 +2,8 @@ Recent Models on Pose Estimation
 ===
 
 1. References
-     - Pose Estimation: [https://paperswithcode.com/task/pose-estimation](https://paperswithcode.com/task/pose-estimation)
-     - Multi-Person Pose Estimation: [https://paperswithcode.com/task/multi-person-pose-estimation](https://paperswithcode.com/task/multi-person-pose-estimation)
+    - Pose Estimation: [https://paperswithcode.com/task/pose-estimation](https://paperswithcode.com/task/pose-estimation)
+    - Multi-Person Pose Estimation: [https://paperswithcode.com/task/multi-person-pose-estimation](https://paperswithcode.com/task/multi-person-pose-estimation)
     - Keypoint Detection: [https://paperswithcode.com/task/keypoint-detection](https://paperswithcode.com/task/keypoint-detection)
 
 2. Recently published, but no codes (as 21, Nov, 2019)
@@ -19,7 +19,7 @@ Recent Models on Pose Estimation
 	
 4. In pose estimation pipe lines, there is two approaches. 
     1. Top-Down Approaches(two-step framework): firstly locate and crop all persons from images, and then solve the single person pose estimation problem in the cropped person patches.
-	2. Bottom-Up Approaches(part-based framework): directly predict all keypoints at first and assemble them into full poses of all persons.
+    2. Bottom-Up Approaches(part-based framework): directly predict all keypoints at first and assemble them into full poses of all persons.
 
 RMPE (2016)
 ---
@@ -27,6 +27,7 @@ RMPE (2016)
 
 [[Paper Link]](https://arxiv.org/abs/1612.00137v5)
 [[Code Link]](https://github.com/MVIG-SJTU/AlphaPose) * Code link is connected to AlphaPose that is new version of RMPE.
+
 <br/>
 Ref: [STN (Spatial Transformer Network)](https://jamiekang.github.io/2017/05/27/spatial-transformer-networks/)
 
@@ -60,6 +61,7 @@ Cascaded Pyramid Network(CPN+) (2017)
 
 [[Paper Link]](https://arxiv.org/abs/1711.07319v2)
 [[Code Link]](https://github.com/chenyilun95/tf-cpn)
+
 <br/>
 Ref: [[ResNet]](http://openresearch.ai/t/resnet-deep-residual-learning-for-image-recognition/41) [[RoIAlign of Mask R-CNN]](https://cdm98.tistory.com/33) [[FPN]](https://eehoeskrap.tistory.com/300) 
 
@@ -81,6 +83,7 @@ CPN의 GlobalNet 네트워크 구조는 ResNet backbone에 기반한다. ResNet�
 
 
 Deconvolution Head Network(가제) (2018)
+
 ---
 **"Simple Baselines for Human Pose Estimation and Tracking"**
 
@@ -98,6 +101,7 @@ Ref: [[Deconvolution]](https://dambaekday.tistory.com/3) [[Batch Normalization]]
 DHN은 ResNet을 기반으로, ResNet의 마지막 컨볼루션 stage에 deconvolutional layers를 추가하였다. 3개의 deconvolutional layer와 batch normalization 그리고 ReLU가 사용된다. 각 레이어는 4x4 커널을 가진 256 필터를 사용한다. 마지막은 k개의 keypoint를 나타내는 heatmaps을 생성하기 위해 1x1 convolutional layer가 사용된다. 
 
 기존의 모델들과의 중요한 차이점은 high resolution feature map을 생성하기 위해 upsampling, put convolutional parameters 를 따로 사용하지 않고, 이 두 방법을 skip layer connection 없이 deconvolutional layer로 통합시킨다.
+
 
 HRNet (2019)
 ---
