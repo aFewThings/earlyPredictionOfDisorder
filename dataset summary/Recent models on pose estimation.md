@@ -80,17 +80,24 @@ CPN의 GlobalNet 네트워크 구조는 ResNet backbone에 기반한다. ResNet�
 그러나 GlobalNet 단일 네트워크로는 hard keypoints를 탐지하기에 부족하므로, RefineNet으로 upsampling과 concatenating을 하여 레벨 간 정보를 통합시킨다 (HyperNet 방식). 
 
 
-SimplePose (2018)
+Deconvolution Head Network(가제) (2018)
 ---
 **"Simple Baselines for Human Pose Estimation and Tracking"**
 
 [[Paper Link]](https://arxiv.org/abs/1804.06208v2)
 [[Code Link]](https://github.com/Microsoft/human-pose-estimation.pytorch)
 
-<p align="center"><img src="./images/ResNet.png" width="90%"></p>
+Ref: [[Deconvolution]](https://dambaekday.tistory.com/3) [[Batch Normalization]](https://light-tree.tistory.com/139)
 
-<p align="center"><img src="./images/ResNet2.png" width="90%"></p>
+<p align="center"><img src="./images/DHN.png" width="70%"></p>
 
+<br/>
+
+이 모델은 이전의 복잡한 모델들(Hourglass, CPN, etc) 보다 상당히 간단한 구조로 약간 더 높은 정확도를 보여 주목을 받게 되었다. 연구의 방향은 '복잡한 것과 반대로 간단한 구조가 얼마나 좋은 성능을 보일수 있는가'를 나타내는 것에 목적을 두고 있다. 
+
+DHN은 ResNet을 기반으로, ResNet의 마지막 컨볼루션 stage에 deconvolutional layers를 추가하였다. 3개의 deconvolutional layer와 batch normalization 그리고 ReLU가 사용된다. 각 레이어는 4x4 커널을 가진 256 필터를 사용한다. 마지막은 k개의 keypoint를 나타내는 heatmaps을 생성하기 위해 1x1 convolutional layer가 사용된다. 
+
+기존의 모델들과의 중요한 차이점은 high resolution feature map을 생성하기 위해 upsampling, put convolutional parameters 를 따로 사용하지 않고, 이 두 방법을 skip layer connection 없이 deconvolutional layer로 통합시킨다.
 
 HRNet (2019)
 ---
