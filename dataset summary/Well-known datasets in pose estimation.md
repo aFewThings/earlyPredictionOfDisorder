@@ -1,8 +1,7 @@
 Well-known Datasets In Pose Estimation
 ===
 
-<details markdown="1">
-<summary> <b>2D Pose Estimation Dataset</b> </summary>
+# 2D Pose Estimation Dataset
 
 MPII Human Pose Dataset
 ---
@@ -97,12 +96,9 @@ Self-Stimulatory Behaviours in the Wild for Autism Diagnosis Dataset (SSBD)
 - 3 group (arm flapping, head banging, spinning)
 - XML annotation format.
 
+<br/>
 
-</details>
-
-
-<details markdown="1">
-<summary> <b>3D Pose Estimation Dataset</b> </summary>
+# 3D Pose Estimation Dataset
 
 ITOP
 ---
@@ -138,5 +134,3 @@ MINI-RGBD dataset is focused on generating infant 2D/3D pose dataset without pri
 - infants up to the age of 7 months
 - continuous motions instead of single frames
 - RGB, depth images
-
-</details>
