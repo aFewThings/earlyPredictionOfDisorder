@@ -6,6 +6,7 @@ OpenPose
 
 version: OpenPose 1.5.0 <br/>
 model: OpenPose [COCO model](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/quick_start.md#body_25-vs-coco-vs-mpi-models) <br/>
+
 test dataset: [SSBD](./Well-known datasets in pose estimation.md#self-stimulatory-behaviours-in-the-wild-for-autism-diagnosis-dataset-ssbd)
 
 In SSBD dataset, they provide xml file with each video like as below.
@@ -37,4 +38,4 @@ One video has multiple behaviours (armflapping, headbanging, spinning), so we ca
    </behaviours>
 </video>
 ```
-I exported keypoints from the clips using OpenPose with cpu only mode. Because of the processing time (cpu mode: 0.3 fps, gpu mode: 10~15 fps), I tested a few samples. The result is in [./videos/openpose-ssbd](./videos/openpose_ssbd), and the json files are keypoints of last frame in each clip.
+I exported keypoints from the clips using OpenPose with cpu only mode. Because of the processing time (cpu mode: 0.3 fps, gpu mode: 10~15 fps), I tested a few samples. The result is in [./videos/openpose_ssbd](./videos/openpose_ssbd), and the json files are keypoints of last frame in each clip.
