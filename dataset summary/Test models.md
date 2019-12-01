@@ -6,8 +6,7 @@ OpenPose
 
 version: OpenPose 1.5.0 <br/>
 model: OpenPose [COCO model](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/quick_start.md#body_25-vs-coco-vs-mpi-models) <br/>
-
-test dataset: [SSBD](./Well-known datasets in pose estimation.md#self-stimulatory-behaviours-in-the-wild-for-autism-diagnosis-dataset-ssbd)
+test dataset: SSBD
 
 In SSBD dataset, they provide xml file with each video like as below.
 One video has multiple behaviours (armflapping, headbanging, spinning), so we can split it into clips by the behaviour-detected time.
