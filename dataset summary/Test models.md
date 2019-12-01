@@ -37,4 +37,4 @@ One video has multiple behaviours (armflapping, headbanging, spinning), so we ca
    </behaviours>
 </video>
 ```
-I exported keypoints from the clips using OpenPose with cpu only mode. Because of the processing time (cpu mode: 0.3 fps, gpu mode: 10~15 fps), I tested a few samples. The result is in [./videos/openpose_ssbd](./videos/openpose_ssbd), and the json files are keypoints of last frame in each clip.
+I exported keypoints from the clips using OpenPose with cpu only mode. Because of the processing time (cpu mode: 0.3 fps, gpu mode: 10~15 fps), I tested a few samples only. The result is in [./videos/openpose_ssbd](./videos/openpose_ssbd), and the json files are keypoints of last frame (not the whole frames) in each clip.
