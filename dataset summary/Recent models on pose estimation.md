@@ -123,7 +123,7 @@ OccNet, OccNetCB (2019)
 
 <br/>
 
-해당 논문에서는 군중들에 대한 포즈 추정과 같은 (감시카메라를 통한 군중 행동 감지 등) 특수한 환경에는 몇가지 해결해야할 과제가 있음을 말하고 있다. 공공장소에서 감시 카메라로부터 얻는 영상은 partially occluded people, mutual occlusions by humans, low resolution of persons와 같이 센서의 제한 혹은 카메라로부터의 거리 때문에 발생하는 문제가 있으므로 포즈 추정이 어려움을 주목한다. 따라서 이들은 사람들로 복잡한 감시 시나리오 환경을 구성하는 방법 및 데이터셋을 소개하며, occluded keypoints까지 탐지할 수 있는 모델을 제시한다. 
+해당 논문에서는 군중들에 대한 포즈 추정과 같은 (감시카메라를 통한 군중 행동 감지 등) 복잡한 환경에는 몇가지 해결해야할 과제가 있음을 말하고 있다. 공공장소에서 감시 카메라로부터 얻는 영상은 partially occluded people, mutual occlusions by humans, low resolution of persons와 같이 센서의 제한 혹은 카메라로부터의 거리 때문에 발생하는 문제가 있으므로 포즈 추정이 어려움을 주목한다. 따라서 이들은 사람들로 복잡한 감시 시나리오 환경을 구성하는 방법 및 데이터셋을 소개하며, occluded keypoints까지 탐지할 수 있는 모델을 제시한다. 
 
 이들은 군중 데이터셋으로 유명한 CrowdPose 데이터셋과 JTA(Joint Track Auto)라는 데이터셋을 비교하여 보완하였다. CrowdPose는 실세계의 사람들을 촬영한 이미지 데이터셋이기에 포즈가 다양하여 keypoint distribution이 넓게 퍼져있지만 대부분 카메라를 향해 바라보고 있다는 단점이 있다. 반면 JTA는 GTA게임 속 가상 환경에서 촬영된 이미지 데이터셋이므로 대부분 걸어다니는 자세라서 distribution이 좁지만, 사람이 카메라를 향하는 경우와 향하지 않는 경우 둘다 충분히 많다는 장점이 있다.
 이러한 차이를 고려해 JTA 데이터셋의 단점을 보완한 (모드를 사용하여 sitting, yoga, push-ups 등 동작 추가) JTA-Ext 데이터셋을 소개하며 3가지 모두 훈련과 실험에 사용하였다. 
