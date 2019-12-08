@@ -128,4 +128,5 @@ OccNet, OccNetCB (2019)
 이들은 군중 데이터셋으로 유명한 CrowdPose 데이터셋과 JTA(Joint Track Auto)라는 데이터셋을 비교하여 보완하였다. CrowdPose는 실세계의 사람들을 촬영한 이미지 데이터셋이기에 포즈가 다양하여 keypoint distribution이 넓게 퍼져있지만 대부분 카메라를 향해 바라보고 있다는 단점이 있다. 반면 JTA는 GTA게임 속 가상 환경에서 촬영된 이미지 데이터셋이므로 대부분 걸어다니는 자세라서 distribution이 좁지만, 사람이 카메라를 향하는 경우와 향하지 않는 경우 둘다 충분히 많다는 장점이 있다.
 이러한 차이를 고려해 JTA 데이터셋의 단점을 보완한 (모드를 사용하여 sitting, yoga, push-ups 등 동작 추가) JTA-Ext 데이터셋을 소개하며 3가지 모두 훈련과 실험에 사용하였다. 
 
-모델은 기존의 simple baseline model에서 occluded keypoints 탐지를 위한 branch를 추가함으로써 확장하였다. occluded and visble keypoints를 위한 branch가 서로 연결되어 있지만 서로 다른 task를 맡기는 이러한 구조는 occlusion을 다루는데 강한 모델을 만들어준다고 말하고 있다. 
+이들이 제시한 모델은 기존의 simple baseline model에서 occluded keypoints 탐지를 위한 branch를 추가함으로써 확장하였다. occluded and visble keypoints를 위한 branch가 서로 연결되어 있지만 서로 다른 task를 맡기는 이러한 구조는 occlusion을 다루는데 강한 모델을 만들어준다고 말하고 있다. OccNet은 backbone으로 ResNet50을 사용하며 simple baseline model과 마찬가지로 top-down 접근법을 사용한다. OccNet은 2개의 transposed convolution (deconvolution, up-convolution 등) 뒤에 나누어지는 반면, OccNetCB(Cross Branch)는 1개의 transposed convolution 뒤에 나뉘도록 하였다. 
+
