@@ -142,3 +142,10 @@ Ref: [[Class Activation Map (Heat Map)]](https://kangbk0120.github.io/articles/2
 <p align="center"><img src="http://openresearch.ai/uploads/default/original/1X/e50f409aa672c5eed54dc83d325a3cec6de98f3a.jpg"></p>
 <p align="center"><img src="http://openresearch.ai/uploads/default/original/1X/18f20fd72702bd2157277019938753e79bc6b5fb.jpg"></p>
 
+<br/>
+
+CPM은 CVPR'16에서 발표되어 최근 주목받고 있는 Part Affinity Fields (OpenPose) 연구의 기초가 되었다. 본 논문은 single person pose estimation을 목표로 하며, 포즈 추정에 대한 문제를 일반적인 top-down이 아닌 bottom-up 방식으로 접근한다. 
+
+CPM은 sequential prediction 구조를 통해 predictor가 점차 정교하게 예측하도록 유도한다. 이전 stage의 predictor가 생성한 belief map (heat map)과 현 stage의 image feature를 사용하여 더 나은 예측을 보여주는 belief map을 생성하게 된다. 여기서 predictor는 입력 이미지의 현 위치에서 예측하려는 part에 대한 localization score를 계산한다.
+
+CPM의 특징은 receptive field가 좁은 영역에서 점차 넓은 영역으로 contextual information을 갖도록 하여 헷갈리는 part의 예측을 해결하였다는 점이다. 
