@@ -148,4 +148,4 @@ CPM은 CVPR'16에서 발표되어 최근 주목받고 있는 Part Affinity Field
 
 CPM은 sequential prediction 구조를 통해 predictor가 점차 정교하게 예측하도록 유도한다. 이전 stage의 predictor가 생성한 belief map (heat map)과 현 stage의 image feature를 사용하여 더 나은 예측을 보여주는 belief map을 생성하게 된다. 여기서 predictor는 입력 이미지의 현 위치에서 예측하려는 part에 대한 localization score를 계산한다.
 
-CPM의 특징은 receptive field가 좁은 영역에서 점차 넓은 영역으로 contextual information을 갖도록 하여 헷갈리는 part의 예측을 해결하였다는 점이다. 
+CPM의 특징은 receptive field가 좁은 영역에서 점차 넓은 영역으로 확장할 수 있도록 크기를 증가시켜 많은 contextual information을 갖게 하였으며, 결국 헷갈리는 part의 예측을 개선했다는 점이다. 
