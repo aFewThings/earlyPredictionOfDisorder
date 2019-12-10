@@ -144,8 +144,10 @@ Ref: [[Class Activation Map (Heat Map)]](https://kangbk0120.github.io/articles/2
 
 <br/>
 
-CPM은 CVPR'16에서 발표되어 최근 주목받고 있는 Part Affinity Fields (OpenPose) 연구의 기초가 되었다. 본 논문은 single person pose estimation을 목표로 하며, 포즈 추정에 대한 문제를 일반적인 top-down이 아닌 bottom-up 방식으로 접근한다. 
+CPM은 CVPR'16에서 발표되어 최근 주목받고 있는 Part Affinity Fields (OpenPose) 연구의 기초가 되었다.
 
-CPM은 sequential prediction 구조를 통해 predictor가 점차 정교하게 예측하도록 유도한다. 이전 stage의 predictor가 생성한 belief map (heat map)과 현 stage의 image feature를 사용하여 더 나은 예측을 보여주는 belief map을 생성하게 된다. 여기서 predictor는 입력 이미지의 현 위치에서 예측하려는 part에 대한 localization score를 계산한다.
+CPM은 sequential prediction 구조를 통해 predictor가 점차 정교하게 예측하도록 유도한다. 이전 stage의 predictor가 생성한 belief map (heat map)과 현 stage의 image feature를 통해 더 나은 예측을 보여주는 belief map을 생성하게 된다. 여기서 predictor는 입력 이미지의 특정 위치에서 예측하려는 part 마다 localization score를 계산한다.
 
-CPM의 특징은 receptive field가 좁은 영역에서 점차 넓은 영역으로 확장할 수 있도록 크기를 증가시켜 많은 contextual information을 갖게 하였으며, 결국 헷갈리는 part의 예측을 개선했다는 점이다. 
+CPM의 특징은 receptive field가 좁은 영역에서 점차 넓은 영역을 다룰 수 있도록 크기를 증가시켜 많은 spatial context information을 포함시킨다는 점이다. 이러한 large receptive field는 모델로 하여금 멀리 떨어진 parts 간의 관계까지 학습하도록 돕는다. 인식하기 쉬운 part의 정보가 애매해서 인식하기 어려운 part의 예측에 도움을 준다고 말하고 있다.
+
+이렇게 깊은 컨볼루션 레이어를 쌓다보면 vanishing gradients 문제가 발생하는데, 이를 각 stage마다 loss layer를 추가하는 방식으로 개선하였다.
