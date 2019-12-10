@@ -130,3 +130,15 @@ OccNet, OccNetCB (2019)
 
 이들이 제시한 모델은 기존의 simple baseline model에서 occluded keypoints 탐지를 위한 branch를 추가함으로써 확장하였다. occluded and visble keypoints를 위한 branch가 서로 연결되어 있지만 서로 다른 task를 맡기는 이러한 구조는 occlusion을 다루는데 강한 모델을 만들어준다고 말하고 있다. OccNet은 backbone으로 ResNet50을 사용하며 simple baseline model과 마찬가지로 top-down 접근법을 사용한다. OccNet은 2개의 transposed convolution (deconvolution, up-convolution 등) 뒤에 나누어지는 반면, OccNetCB(Cross Branch)는 1개의 transposed convolution 뒤에 나뉘도록 하였다. 
 
+CPM (2016)
+---
+**"Convolutional Pose Machine"**
+
+[[Paper Link]](https://arxiv.org/abs/1602.00134)
+[[Code Link]](https://github.com/shihenw/convolutional-pose-machines-release)
+
+Ref: [[Class Activation Map (Heat Map)]](https://kangbk0120.github.io/articles/2018-02/cam)
+
+<p align="center"><img src="http://openresearch.ai/uploads/default/original/1X/e50f409aa672c5eed54dc83d325a3cec6de98f3a.jpg"></p>
+<p align="center"><img src="http://openresearch.ai/uploads/default/original/1X/18f20fd72702bd2157277019938753e79bc6b5fb.jpg"></p>
+
