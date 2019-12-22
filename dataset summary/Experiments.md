@@ -40,22 +40,16 @@ Models
 OpenPose
 ---
 
-version: OpenPose 1.5.0 <br/>
-model: OpenPose [COCO model](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/quick_start.md#body_25-vs-coco-vs-mpi-models) <br/>
+test version: OpenPose 1.5.0 <br/>
+test model: OpenPose[-COCO model](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/quick_start.md#body_25-vs-coco-vs-mpi-models) <br/>
 
 I exported keypoints from the clips using OpenPose with cpu only mode. Because of the processing time (cpu mode: 0.3 fps, gpu mode: 10~15 fps), I tested a few samples only. The result is in [./videos/openpose_ssbd](./videos/openpose_ssbd).
 
-[OpenPose Train](https://github.com/CMU-Perceptual-Computing-Lab/openpose_train/tree/master/training#whole-body-training)
+They describes [How to train OpenPose models with COCO images](https://github.com/CMU-Perceptual-Computing-Lab/openpose_train/tree/master/training#whole-body-training), **but there is no guide for custom training.**
 
 ### Input Format
+In their caffe model training guide they use LMDB files and these are hard to see inside. But I guess they followed COCO annotation format rules. 
 [COCO annotation data format](http://cocodataset.org/#format-data)
-
-
-### Pose Output (BODY_25)
-
-<p align="center">
-    <img src="https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_pose_25.png", width="480">
-</p>
 
 ### Pose Output (COCO)
 
@@ -64,13 +58,13 @@ I exported keypoints from the clips using OpenPose with cpu only mode. Because o
 </p>
 
 ### Result Format
-[COCO Keypoint result format](http://cocodataset.org/#format-results)
 ```
 {
     "version":1.1,
     "people":[
         {
             "pose_keypoints_2d":[582.349,507.866,0.845918,746.975,631.307,0.587007,...],
+			                    # the length of list will be 18 (COCO model).
         }
     ]
 }
