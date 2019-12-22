@@ -74,10 +74,10 @@ In their caffe model training guide they use LMDB files and these are hard to se
 AlphaPose
 ---
 
-### Input Format
-
 They support training code from scratch. we can see inside of the model that implemented with pytorch also. [AlphaPose train.py](https://github.com/MVIG-SJTU/AlphaPose/blob/master/scripts/train.py)
 , [How to train issue](https://github.com/MVIG-SJTU/AlphaPose/issues/62)
+
+### Input Format
 
 ### Output Format
 
