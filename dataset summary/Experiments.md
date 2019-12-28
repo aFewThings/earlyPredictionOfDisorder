@@ -45,7 +45,7 @@ OpenPose
 
 ~~I exported keypoints from the clips using OpenPose with cpu only mode. Because of the processing time (cpu mode: 0.3 fps, gpu mode: 10~15 fps), I tested a few samples only. The result is in [./videos/openpose_ssbd](./videos/openpose_ssbd).~~
 
-training guide: [How to train OpenPose models with COCO images](https://github.com/CMU-Perceptual-Computing-Lab/openpose_train/tree/master/training#whole-body-training) **_but there is no guide for custom training_**
+training guide: [How to train OpenPose models with COCO images](https://github.com/CMU-Perceptual-Computing-Lab/openpose_train/tree/master/training#whole-body-training) **(_but there is no guide for custom training_)**
 
 caffe model: [openpose_caffe_train](https://github.com/CMU-Perceptual-Computing-Lab/openpose_caffe_train)
 
@@ -76,11 +76,14 @@ In their training guide they use LMDB files and these are hard to see inside. Bu
 AlphaPose
 ---
 
-They support training code from scratch. we can see inside of the model that implemented with pytorch also. [AlphaPose](https://github.com/MVIG-SJTU/AlphaPose/blob/master/scripts/train.py)
-, [How to train issue](https://github.com/MVIG-SJTU/AlphaPose/issues/62)
+They support training code from scratch. we can see inside of the model that implemented with pytorch also.
+ 
+training code: [pytorch train.py](https://github.com/MVIG-SJTU/AlphaPose/blob/master/scripts/train.py)
 
 ### Input Format
 
+it seems to use COCO json format showed as above.
+
 ### Pose Order and Output Format
 
-Output format and keypoint ordering are described here [alphaPose - output format](https://github.com/MVIG-SJTU/AlphaPose/blob/master/docs/output.md#keypoint-ordering).
+Keypoint ordering and Output format are described here [alphaPose - output format](https://github.com/MVIG-SJTU/AlphaPose/blob/master/docs/output.md#keypoint-ordering).
