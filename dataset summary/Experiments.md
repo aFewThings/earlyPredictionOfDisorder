@@ -52,7 +52,7 @@ caffe model: [openpose_caffe_train](https://github.com/CMU-Perceptual-Computing-
 
 ### Input Format
 
-In their training guide they use LMDB files and these are hard to see inside. But I guess they followed [COCO annotation format](http://cocodataset.org/#format-data) rules. 
+In their training guide they use LMDB files and these are hard to see inside. I guess they followed [COCO annotation format](http://cocodataset.org/#format-data) rules. 
 
 ### Pose Order (COCO)
 
