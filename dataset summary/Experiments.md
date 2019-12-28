@@ -37,6 +37,7 @@ One video has multiple behaviours (armflapping, headbanging, spinning), so we ca
 
 Models
 ===
+
 OpenPose
 ---
 
@@ -54,6 +55,8 @@ caffe model: [openpose_caffe_train](https://github.com/CMU-Perceptual-Computing-
 In their training guide they use LMDB files and these are hard to see inside. But I guess they followed [COCO annotation format](http://cocodataset.org/#format-data) rules. 
 
 ### Pose Order (COCO)
+
+They followed COCO annotation format which has 17 keypoints and added one more feature(Neck)  interpolated by Lsho and Rsho.
 
 <p align="center">
     <img src="https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_pose_18.png", width="480">
@@ -78,12 +81,30 @@ AlphaPose
 
 They support training code from scratch. we can see inside of the model that implemented with pytorch also.
  
-training code: [pytorch train.py](https://github.com/MVIG-SJTU/AlphaPose/blob/master/scripts/train.py)
+training code: [train.py](https://github.com/MVIG-SJTU/AlphaPose/blob/master/scripts/train.py)
+
+pytorch model: [simplepose.py](https://github.com/MVIG-SJTU/AlphaPose/blob/master/alphapose/models/simplepose.py)
 
 ### Input Format
 
-it seems to use COCO json format showed as above.
+it seems to use COCO json format showed as above. 
+it contains 17 keypoints. <br/>
+```
+['Nose', Leye', 'Reye', 'Lear', 'Rear', 'Lsho', 'Rsho', 'Lelb', 'Relb', 'Lwri', 'Rwri', 'Lhip', 'Rhip', 'Lkne', 'Rkne', 'Lank', 'Rank']
+```
 
 ### Pose Order and Output Format
 
 Keypoint ordering and Output format are described here [alphaPose - output format](https://github.com/MVIG-SJTU/AlphaPose/blob/master/docs/output.md#keypoint-ordering).
+
+Simple Baseline model
+---
+
+training code: [train.py](https://github.com/microsoft/human-pose-estimation.pytorch/blob/master/pose_estimation/train.py)
+
+pytorch model: [pose_resnet.py](https://github.com/microsoft/human-pose-estimation.pytorch/blob/2d723e3fd7f93dd81dd093af2328174555f6d552/lib/models/pose_resnet.py)
+
+### Input Format
+same as above. 17 keypoints.
+
+### Pose Order and Output Format
