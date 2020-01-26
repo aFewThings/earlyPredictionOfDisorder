@@ -151,3 +151,17 @@ CPM (2016)
 - CPM의 특징은 receptive field가 좁은 영역에서 점차 넓은 영역을 다룰 수 있도록 크기를 증가시켜 많은 spatial context information을 포함시킨다는 점이다. 이러한 large receptive field는 모델로 하여금 멀리 떨어진 parts 간의 관계까지 학습하도록 돕는다. 인식하기 쉬운 part의 정보가 애매해서 인식하기 어려운 part의 예측에 도움을 준다고 말하고 있다.
 
 - 이렇게 깊은 컨볼루션 레이어를 쌓다보면 vanishing gradients 문제가 발생하는데, 이를 각 stage마다 loss layer를 추가하는 방식으로 개선하였다.
+
+Stacked Hourglass (2016)
+---
+**"Stacked Hourglass Networks for Human Pose Estimation"**
+
+[[Paper Link]](https://arxiv.org/abs/1603.06937)
+[[Code Link]](https://github.com/wbenbihi/hourglasstensorlfow)
+
+<p align="center"><img src="./images/Stacked hg2.PNG"></p>
+<p align="center"><img src="./images/Stacked hg1.PNG"></p>
+
+<br/>
+
+- Stacked hg는 이미지로부터 모든 scale의 feature들을 추출해 local한 영역과 global한 영역을 통합하는 것으로 single person estimation task를 해결하고자 했다. 연구자가 제안한 hourglass net은 256x256 이미지로부터 bottom-up(high resolution to low resolution), top-down(low to high) 방식을 수행하여 모든 scale의 이미지에서 feature를 추출하고자 했다. 또한, 이와 동일한 구조를 갖는 hourglass를 여러 스택으로 반복하여 스택 중간마다 intermediate supervision을 수행하는 것으로 정확도를 높일 수 있었다.
