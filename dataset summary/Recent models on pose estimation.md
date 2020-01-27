@@ -164,4 +164,12 @@ Stacked Hourglass (2016)
 
 <br/>
 
-- Stacked hg는 이미지로부터 모든 scale의 feature들을 추출해 local한 영역과 global한 영역을 통합하는 것으로 single person estimation task를 해결하고자 했다. 연구자가 제안한 hourglass net은 256x256 이미지로부터 bottom-up(high resolution to low resolution), top-down(low to high) 방식을 수행하여 모든 scale의 이미지에서 feature를 추출하고자 했다. 또한, 이와 동일한 구조를 갖는 hourglass를 여러 스택으로 반복하여 스택 중간마다 intermediate supervision을 수행하는 것으로 정확도를 높일 수 있었다.
+- Stacked hg는 이미지로부터 모든 scale의 feature들을 추출해 local한 영역과 global한 영역을 통합하는 것으로 single person estimation task를 해결하고자 했다. 연구자가 제안한 hourglass net은 이미지로부터 bottom-up(high resolution to low resolution), top-down(low to high) 방식을 수행하여 모든 scale의 이미지에서 feature를 추출한다. 또한, hg를 여러 스택으로 구성하여 스택의 중간마다 intermediate supervision을 수행하는 것으로 정확도를 높인다. 결과적으로 모델은 FLIC, MPII datasets과 같은 벤치마크에서 SoTA를 달성했으며, heavy occlusion과 multiple people in close proximity와 같은 어려움에도 강인한 성능을 보인다.
+
+- Stacked hg는 256x256x3 크기의 image를 입력받아 64x64x256 크기로 변형하는 preprocessing step과 이후, 이미지의 features를 maxpooling, upsampling, combine하는 반복된 hg step으로 구성된다. 상단의 첫번째 그림에서 점선영역은 반복되는 stacked hg를 나타내며 final inference 하는 hg와는 약간의 차이가 있다.
+
+- hg는 ResNet의 skip connection, Inception의 5x5 conv->1x1, 3x3 conv layer, Fully Convolutional Network의 heatmap 등의 아이디어를 기반으로하여 Residual Module을(상단그림 왼쪽) 확장하여 사용한다. Residual Module은 Densely하게 feature를 모으는 역할을 하여, 입력에 대해 HxWx256으로 출력한다. 상단 첫번째 그림에서 보이는 모든 박스들은 Residual Module을 의미한다.
+
+- local한 영역을 얻기위해서 bottom-up 과정에선 resolution이 64x64->4x4가 될때까지 residual module과 maxpooling을 반복한다. low resolution에 도달하면 upsampling(독특하게도 unpooling, deconv layer가 아닌 nearest neighbor)과 여러 scale의 features를 combination(elementwise addition of two pairs of features)하는 top-down 과정을 수행한다. 여기서 여러 scale의 feature란 미리 각 maxpooling에서 branch off한 64x64, 32x32, 16x16, 4x4 features을 의미한다. 이로써 local한 영역뿐만 아니라 global한 영역까지 hg에 통합시킨다.
+
+- hg의 마지막 출력은 64x64xjoints 크기의 heatmap을 생성한다(이후 upsampling하여 비교). 실제 이미지의 joint location과 비교하기 위해서, 각 joint에 대해 2D Gaussian으로 처리된 ground-truth heatmap을 사용한다. 
