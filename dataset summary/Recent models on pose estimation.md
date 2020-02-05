@@ -173,3 +173,36 @@ Stacked Hourglass (2016)
 - local한 영역을 얻기위해서 bottom-up 과정에선 resolution이 64x64->4x4가 될때까지 residual module과 maxpooling을 반복한다. low resolution에 도달하면 upsampling(독특하게도 unpooling, deconv layer가 아닌 nearest neighbor)과 여러 scale의 features를 combination(elementwise addition of two pairs of features)하는 top-down 과정을 수행한다. 여기서 여러 scale의 feature란 미리 각 maxpooling에서 branch off한 64x64, 32x32, 16x16, 4x4 features을 의미한다. 이로써 local한 영역뿐만 아니라 global한 영역까지 hg에 통합시킨다.
 
 - hg의 마지막 출력은 64x64xjoints 크기의 heatmap을 생성한다(이후 upsampling하여 비교). 실제 이미지의 joint location과 비교하기 위해서, 각 joint에 대해 2D Gaussian으로 처리된 ground-truth heatmap을 사용한다.
+
+Detect-and-Track (2017)
+---
+**"Detect-and-Track: Efficient Pose Estimation in Videos"**
+
+[[Paper Link]](https://arxiv.org/abs/1712.09184)
+[[Code Link]](https://github.com/facebookresearch/DetectAndTrack)
+
+Ref: [[3D Convolution]](https://jay.tech.blog/2017/02/02/3d-convolutional-networks/)
+
+<p align="center"><img src="./images/detect and track.PNG"></p>
+<p align="center"><img src="./images/detect and track2.PNG"></p>
+<p align="center"><img src="./images/detect and track3.PNG"></p>
+
+<br/>
+
+- Detect and track (이하 DnT)은 pose estimation and tracking instance in videos를 목표로 한다. 하지만 주로 tracking task에 집중하여 MOTA(Multi-Object Tracking Accuracy)를 높이는 방향을 택했다. 17년 PoseTrack (multi-person video pose estimation dataset) keypoint tracking challenge에 참가하여 당시 다른 모든 tracking 모델을 이기고 SoTA를 달성했다.
+
+- DnT는 multi-person pose estimation 문제를 top-down 방식으로 접근한다. 이전 연구들의 tracking optimization은 frame-level prediction (단일 frame의 정보만 이용하는 perdiction)에서의 instances을 서로 연결하는 정도로 적용하고 있으며, keypoint estimation 과정에 시간 정보 (temporal information) 또한 활용하지 않는다. 따라서 DnT는 3D Convolution 연산을 사용하여 시간 정보를 tracking, estimation 과정에 포함시키는 방법을 제안한다.
+
+- stage 1: Spatiotemporal pose estimation over clips
+    - DnT는 시간정보를 활용하기 위해 입력을 video clip (T개의 연속된 frames)으로 받는다. 입력받은 clip에서 feature를 추출하도록 ResNet base network를 사용하는데, 이들은 ResNet의 2D Conv을 3D Conv로 대체함으로써 커널이 시간 정보까지 다루도록 하였다 (kernel shape : Time (frames) x height x width x channels).
+
+    - Base Network으로부터 3D feature map이 주어지면, Faster R-CNN의 RPN (Region Proposal Network)를 3D로 확장한 TPN(Tube Proposal Network)으로 전달된다. TPN은 다양한 비율과 크기를 갖는 12개의 tube anchor를 사용해 object candidates 영역 (모든 위치에서 objectness, localization 계산)을 제안하도록 학습한다. 이후 Spatio-Temporal RoIAlign (시간축으로 확장)연산을 사용해 후보 영역들의 feature map (T x R x R size, R은 RoIAlign의 출력 resoulution)을 추출한다.
+
+    - 마지막으로 후보 영역들의 feature map은 classification head와 keypoints head로 전달한다.
+    classification head는 base network와 같이 ResNet Blocks으로 이루어지는 반면, keypoints head는 8개의 3D conv layer, 2개의 deconvolution layer로 구성되어 각 frame에 대하여 keypoint heatmap을 생성한다.
+
+    - ~~loss에 관한 내용 보류. classification head가 정확히 어떤 목적으로 있는건지 잘 모르겠다. 언뜻 보기엔 TPN을 학습시키기 위해 objectness와 localization에 대한 cls, reg를 출력하는 듯하다. 하지만 이미 TPN에서도 계산하기 때문에 이해하기 어렵다. 논문에서는 정확히 명시하고 있지 않아서 Faster R-CNN이나 Mask R-CNN에서 설명하는 것으로 추정함.~~
+
+- stage 2: Linking keypoint predictions into tracks
+    - 이전 연구들과 유사하게 bipartite matching problem을 실험을 통해 Hungarian 알고리즘이 greedy 알고리즘보다 약간 더 우수함을 보였다.
+    - 이들은 한 프레임에서 발견된 instance를 node로 표현, 그리고 인접한 프레임 사이에서 node들간의 연결을 edge로 표현하여 각 edge를 연결하기위한 cost를 likelihood value로 정의한다. 이들은 likelihood metric을 4가지로 제안하여 비교하였는데, 인접 프레임 사이에서 1) Visual similarity (feature map간의 유사성 계산), 2) Location similarity (bounding box간의 Intersection of Union), 3) Pose similarity (PCKh distance) 4) LSTM model을 이용한 learned distance metric 로 제안한다. 결과적으로 tracking 성능이 우수하면서 계산량이 적은 Hungarian matching algorithm using IoU metric을 사용한다. 
