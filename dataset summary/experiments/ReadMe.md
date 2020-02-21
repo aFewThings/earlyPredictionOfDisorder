@@ -10,7 +10,7 @@ SSBD 데이터셋은 3가지 종류의 행동 양상(Arm flapping, Headbanging, 
   1. SSBD 데이터셋이 제공하는 annotation 파일(`.xml`)을 기준으로, 각 원본 영상에서 (e.g. v_ArmFlapping_01.avi) 두드러진 Action이 관찰된 구간만 (최대 150frame) 참조한다.
   2. 참조한 구간을 [오픈소스 툴](https://github.com/antran89/clipping_ssbd_videos)을 사용해 320x240 fixed size의 새로운 영상으로 추출한다.
 
-추출한 영상들은 [dataset summary/videos/ssbd_clip_segment/](../videos/ssbd_clip_segment/) 에서 확인할 수 있다. (일부 깨지거나 왜곡된 영상들이 존재함)
+추출한 영상들은 [./videos/ssbd_clip_segment/](./videos/ssbd_clip_segment/) 에서 확인할 수 있다. (일부 깨지거나 왜곡된 영상들이 존재함)
 
 ---
 
