@@ -108,7 +108,7 @@ Joint Track Auto (JTA) Dataset
 - a set of 512 full-HD videos (256 for training, 256 for testing)
 - 30 seconds long, recorded at 30fps
 
-Infant Movement-Based Assessments
+Infant Movement-Based Assessments (Infant Normative Dataset)
 ---
 [https://github.com/cchamber/Infant_movement_assessment](https://github.com/cchamber/Infant_movement_assessment)
 
