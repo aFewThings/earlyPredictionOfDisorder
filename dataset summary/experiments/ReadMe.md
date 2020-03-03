@@ -10,14 +10,17 @@ SSBD 데이터셋은 3가지 종류의 행동 (Arm flapping, Headbanging, Spinni
   1. 데이터셋이 제공하는 annotation 파일(`.xml`)을 기준으로, 각 원본 영상에서 (e.g. v_ArmFlapping_01.avi) 두드러진 Action이 관찰된 구간만 참조한다.
   2. 참조한 구간을 [오픈소스 툴](https://github.com/antran89/clipping_ssbd_videos)을 사용해 ???x320 size의 영상으로 추출한다.
 
+- ArmFlapping
 <p align="center"> <img src="../images/ssbd_armflapping.gif"> </p>
-<center> ArmFlapping </center> <br/>
+<br/>
 
+- HeadBanging
 <p align="center"> <img src="../images/ssbd_headbanging.gif"> </p>
-<center> HeadBanging </center> <br/>
+<br/>
 
+- Spinning
 <p align="center"> <img src="../images/ssbd_spinning.gif"> </p>
-<center> Spinning </center> <br/>
+<br/>
 
 Infant Normative Dataset
 ---
@@ -28,11 +31,13 @@ Infant Normative Dataset
   1. 데이터셋이 제공하는 annotation 파일(`.csv`)을 기준으로, 각 원본 영상에서 (e.g. 4.avi) 아이의 모습만 촬영된 구간을 참조한다.
   2. 참조한 구간을 MoviePy를 사용해 ???x320 size의 영상으로 추출한다.
 
+- example 1
 <p align="center"> <img src="../images/infant1.gif"> </p>
-<center> example 1 </center> <br/>
+<br/>
 
+- example 2
 <p align="center"> <img src="../images/infant2.gif"> </p>
-<center> example 2 </center> <br/>
+<br/>
 
 ---
 
