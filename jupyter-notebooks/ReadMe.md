@@ -20,7 +20,7 @@ Contents
 본 학습 과정은 간단한 CNN(Convolutional Neural Network) 모델부터 Pose Estimation 연구 분야에 유의미한 결과를 남긴 복잡한 모델들까지 살펴보는 것에 초점을 맞추었습니다.
 
 1. [실험 환경 설치](./1_setting_environment.ipynb)
-1. [파이토치 기초](./2_1_pytorch_basic.ipynb)
+1. [파이토치 기초](./2_pytorch_basic.ipynb)
 1. [CNN]()
 1. [학습 데이터 전처리]()
 1. 모델 자세히 설명
