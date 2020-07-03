@@ -21,7 +21,7 @@ Contents
 
 1. [실험 환경 설치](./1_setting_environment.ipynb)
 1. [파이토치 기초](./2_pytorch_basic.ipynb)
-1. [CNN]()
+1. [CNN](./3_convolutional_neural_network.ipynb)
 1. [학습 데이터 전처리]()
 1. 모델 자세히 설명
 1. 모델 학습, 성능 테스트
