@@ -24,7 +24,7 @@ Contents
 1. [실험 환경 설치](./1_setting_environment.ipynb)
 2. [파이토치 기초](./2_pytorch_basic.ipynb)
 3. [CNN](./3_convolutional_neural_network.ipynb)
-4. [포즈 데이터셋과 데이터 전처리](4_pose_dataset_and_preprocessing.ipynb)
-5. 모델 자세히 설명
-6. 모델 학습, 성능 테스트
+4. [포즈 데이터셋과 데이터 전처리](./4_pose_dataset_and_preprocessing.ipynb)
+5. [포즈 추정 모델](./5_pose_estimation_models.ipynb)
+6. [모델 성능 검증과 결과 시각화](./6_evaluation_and_visualization.ipynb)
 7. 결과 시각화
